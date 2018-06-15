@@ -1,0 +1,98 @@
+.modal-dialog
+  position: fixed
+  width: 700px
+  top: 50px
+  left: 50%
+  right: 50%
+  margin-left: -350px
+  z-index: 10
+
+.modal-dialog-root
+  display: block
+  position: relative
+  background-color: #FFFFFF
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12)
+  z-index: 100
+  .modal-dialog-header
+    background-color: #768fff
+    padding: 24px 48px 24px 16px
+    text-align: left
+    h3
+      display: block
+      margin: 0
+      padding: 0
+      font-size: 34px
+      font-weight: 300
+      color: #FFFFFF
+  .modal-dialog-content
+    padding: 24px 16px
+    table
+      background-color: rgb(255, 255, 255)
+      width: 100%
+      border-collapse: collapse
+      table-layout: fixed
+      tr
+        border-bottom: 1px solid rgba(0, 0, 96, 0.4)
+        color: rgb(0, 0, 95)
+        height: 48px
+        td
+          padding-left: 24px
+          padding-right: 24px
+          height: 48px
+          text-align: left
+          font-size: 13px
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+          background-color: inherit
+          &:first-child
+            width: 35%
+          &:last-child
+            width: 65%
+  .modal-dialog-footer
+    padding: 24px 16px
+    text-align: right
+    .dialog-btn
+      height: 36px
+      line-height: 36px
+      min-width: 88px
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms
+      user-select: none
+      overflow: hidden
+      border: none
+      background: none
+      text-transform: uppercase
+      font-weight: 500
+      font-size: 14px
+    .cancel-dialog-btn
+      color: rgb(0, 0, 95)
+    .confirm-dialog-btn
+      color: rgb(118, 143, 255)
+      &:hover
+        background-color: rgba(153, 153, 153, 0.2)
+        border-radius: 2px
+
+.modal-dialog-close
+  position: absolute
+  top: 14px
+  right: 16px
+  color: #FFFFFF
+  cursor: pointer
+  opacity: 0.8
+  font-size: 20px
+  &:hover
+    color: #FFFFFF
+    opacity: 1
+
+.modal-dialog-backdrop
+  overflow-y: auto
+  overflow-x: hidden
+  background: rgba(0, 0, 0, .2)
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  padding: 20px 0
+  z-index: 10
+  -webkit-overflow-scrolling: touch

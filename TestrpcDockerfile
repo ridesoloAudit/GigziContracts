@@ -1,0 +1,14 @@
+FROM node:8.4
+
+COPY . /opt/testrpc
+
+WORKDIR /opt/testrpc
+
+RUN npm install -g ethereumjs-testrpc@4.0.0
+RUN npm install -g truffle@4.0.0
+RUN npm install
+RUN truffle compile
+
+VOLUME /opt/testrpc/build/contracts/
+
+ENTRYPOINT testrpc -l 0xfffffffffff | truffle migrate

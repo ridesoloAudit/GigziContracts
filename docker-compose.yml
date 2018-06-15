@@ -1,0 +1,32 @@
+version: '3'
+services:
+
+  testrpc:
+    image: etherealllc/gold-testrpc
+    restart: on-failure
+    ports:
+      - 8545:8545
+    volumes: 
+      - ./contracts:/opt/testrpc/build/contracts/
+
+  goldcore:
+    image: etherealllc/gold-admin    
+    restart: on-failure
+    depends_on:
+      - testrpc
+    ports:
+      - 3000:3000
+    volumes: 
+      - ./contracts:/opt/gizi/build/contracts/
+    entrypoint: sh -c 'sleep 10 && npm start'
+
+  web-wallet:
+    image: etherealllc/gold-web-wallet
+    restart: on-failure
+    depends_on: 
+      - testrpc
+    ports: 
+      - 3001:3000
+    volumes: 
+      - ./contracts:/opt/gizi/src/contracts/spec/
+    entrypoint: sh -c 'sleep 10 && npm start'
